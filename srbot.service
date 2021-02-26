@@ -1,0 +1,15 @@
+[Unit]
+Description=Smoking Rifles RCON Bot
+After=network.target
+
+[Service]
+WorkingDirectory=/home/srbot/squad-bot
+User=srbot
+Group=srbot
+Type=simple
+ExecStart=node /home/srbot/squad-bot/bot.js
+RestartSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
