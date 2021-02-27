@@ -22,6 +22,12 @@ const rconCommandRegEx = new RegExp(secrets.prefix + "(?<command>admin|report) ?
 const dcordMessagecontentregexp = new RegExp(secrets.prefix + "(?<message>.*)");
 const dcordCommandregexp = /(?<command>\w*)[ ]?(?<arguments>.*)/;
 
+// Atleast log uncaught exceptions, then crash&burn
+process.on('uncaughtException', (err) => {
+    Logger.error('Bot', 'uncaughtException', `${err.message}`, err.stack);
+    process.exit(1)
+});
+
 //Discord Client
 const DiscordClient = new Discordjs.Client();
 DiscordClient.on("ready", () => {

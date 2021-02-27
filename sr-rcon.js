@@ -104,14 +104,14 @@ class Rcon extends EventEmitter {
          * @default '127.0.0.1'
          * @private
          */
-        this._host = host || '127.0.0.1';
+        this.host = host || '127.0.0.1';
         /**
          * Server port
          * @type {number}
          * @default 21114
          * @private
          */
-        this._port = port || 21114;
+        this.port = port || 21114;
         /**
          * Maximum packet bytes size, zero to unlimit
          * @type {number}
@@ -214,7 +214,7 @@ class Rcon extends EventEmitter {
         this._client.once('connect', onConnect);
         this._client.once('error', onError);
 
-        this._client.connect(this._port, this._host);
+        this._client.connect(this.port, this.host);
     }
 
     /**
