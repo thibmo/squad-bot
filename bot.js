@@ -136,8 +136,7 @@ const rcon = new Rcon(
     secrets.rconpassword,
     {
         maximumPacketSize: 4096,
-        encoding: 'utf8',
-        timeout: 1000
+        encoding: 'utf8'
     }
 );
 rcon.on('authed', function() {
